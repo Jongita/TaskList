@@ -7,6 +7,9 @@ const list = document.getElementById("tasks_list") // ul elementas
 const taskName = document.getElementById("task_name"); // input elementas
 const taskNum = document.getElementById("task_num"); // input elementas
 
+// 17. isvalyti sarasa
+const clearPrekes = document.getElementById("clear_prekes"); // button elementas
+
 
 // 8. Kinamasis kuriame saugomos uzduotys. t.y. i 'prekes' prideti nauja preke
 let prekes = [];
@@ -68,12 +71,26 @@ const addTask = () => {
 
 }
 
+// 17. 
+const clearList = () => {
+    // isvalome masyva
+    prekes = [];
+    // turime isvalyti localstorage. Remove item istrins viena eilute, kuria nurodysim, clear - istrins visa
+    localStorage.removeItem("prekes");
+
+    // atvaizduoti is naujo
+    showPrekes();
+}
+
 // 3. paimti kaip sarasa, jam sukurti child elementa po apacia ir prideti ji ir ji sukurti kaip objekta, nurodant kokio tipo elementas bus (HTML element), prideti jam atributus ir prikabinti ji kaip elementa prie saraso.
 //createElement grazins Html elementa ir ka noresim ta galesim priskirti. paduoti reikia, kokio tipo tago mums reiketu
 // dokument sukurs objekta ir funkcija grazins ji mums, o ta objekta turim prisikirti kokiam nors kintamajam (new task). Bet jis dar nepriskirtas niekur DOMe. mes galim bet kuriam elementui priskirti kaip child elementa.
 
 // 4. Mygtuko paspaudimu prideda li objekta
 addBtn.onclick = addTask;
+
+// 18. Mygtukui priskirti isvalyti funkcija
+clearPrekes.onclick = clearList;
 
 // 5. Objektui priskirti atributus, vienas is ju klases pavadinimas
 
@@ -103,4 +120,7 @@ if (lsPrekes != null) {
     showPrekes();
 }
 
-// 13. kai uzsikrauna puslapis noretume jas atvaizduoti 
+// 13. kai uzsikrauna puslapis noretume jas atvaizduoti
+
+// 17. Sukuriame mygtuka isvalyti sarasa.
+
